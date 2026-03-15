@@ -2,9 +2,30 @@
 <html>
 <head>
 <title>Fellipe quer brincar</title>
+
+<style>
+
+body{
+text-align:center;
+font-family:Arial;
+margin-top:100px;
+transition: background-color 1s;
+overflow:hidden;
+}
+
+.pixel{
+position:absolute;
+font-family:monospace;
+font-size:20px;
+font-weight:bold;
+pointer-events:none;
+}
+
+</style>
+
 </head>
 
-<body style="text-align:center; font-family:Arial; margin-top:100px; transition: background-color 1s;">
+<body>
 
 <h1>Site do Fellipe 😈</h1>
 
@@ -30,6 +51,13 @@ function brincar(){
 document.getElementById("texto").style.display="block";
 document.getElementById("voz").play();
 
+piscarFundo();
+chuvaPixels();
+
+}
+
+function piscarFundo(){
+
 setInterval(function(){
 
 document.body.style.backgroundColor = cores[i];
@@ -40,6 +68,33 @@ i = 0;
 }
 
 },1000);
+
+}
+
+function chuvaPixels(){
+
+setInterval(function(){
+
+let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+let letra = caracteres[Math.floor(Math.random()*caracteres.length)];
+
+let span = document.createElement("span");
+span.className="pixel";
+span.innerText=letra;
+
+span.style.left=Math.random()*window.innerWidth+"px";
+span.style.top=Math.random()*window.innerHeight+"px";
+
+let cores=["red","blue","green","yellow","pink","white"];
+span.style.color=cores[Math.floor(Math.random()*cores.length)];
+
+document.body.appendChild(span);
+
+setTimeout(function(){
+span.remove();
+},300);
+
+},50);
 
 }
 
