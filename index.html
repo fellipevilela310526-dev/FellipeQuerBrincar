@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fellipe Quer Brincar</title>
+</head>
+
+<body style="text-align:center;margin-top:100px;font-family:Arial;">
+
+<h1>Fellipe Quer Brincar</h1>
+
+<button onclick="mostrar()" style="background:red;color:white;padding:15px;font-size:20px;border:none;">
+Aperte o botão
+</button>
+
+<p id="texto" style="display:none;margin-top:20px;font-size:20px;">
+Fellipe quer brincar com o benjamin........
+</p>
+
+<script>
+function mostrar(){
+document.getElementById("texto").style.display="block";
+
+setTimeout(function(){
+document.getElementById("texto").style.display="none";
+},10000);
+}
+</script>
+
+</body>
+</html>
